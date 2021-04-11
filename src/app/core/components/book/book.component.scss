@@ -1,0 +1,35 @@
+:host {
+
+    margin: 1rem;
+
+    .card-title, .book-info {
+        height: 3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 2px;
+    }
+
+    .card-title {
+        height: 4rem;
+    }
+
+    .wishlist-icon {
+        color: gray;
+
+        &.selected {
+            color: yellow;
+        }
+    }
+    
+    .wish-list-button {
+        cursor: pointer;
+    }
+
+    .remove-icon {
+        color: black;
+    }
+
+    img {
+        width: 10rem;
+    }
+}

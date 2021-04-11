@@ -1,0 +1,11 @@
+
+<div class="container">
+    <h2>Your Wish LIst <span *ngIf="!hasItems()">Is Empty </span>  </h2>
+
+    <ul class="list-unstyled"  *ngIf="hasItems()">
+        <il class="media" *ngFor="let wishItem of dataCenter.wishListAsArray">
+            <app-book *ngIf="!isSearching" [bookItem]="wishItem" [showRemove]="true"></app-book>
+        </il>
+    </ul>
+    
+</div>

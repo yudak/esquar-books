@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 card-margin">
+            <div class="card search-form">
+                <div class="card-body p-0">
+                    <div id="search-form">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row no-gutters">
+                                    <div class="search-bar p-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-search">
+                                            <circle cx="11" cy="11" r="8"></circle>
+                                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        </svg>
+                                        <input type="text" placeholder="Search..." class="form-control" id="search"
+                                            name="search" [formControl]="searchFc">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="d-flex justify-content-center m-2">
+        <ul *ngIf="getPagesCount() > 1"
+            class="pagination pagination-base pagination-boxed pagination-square mb-0">
+            <li *ngIf="pageNumber > 0" class="page-item" title="Previous">
+                <a class="page-link no-border" (click)="goPage('Previous')">
+                    <span aria-hidden="true">«</span>
+                    <span class="sr-only"></span>
+                </a>
+            </li>
+
+            <li *ngIf="pageNumber < getPagesCount()" class="page-item" >
+                <a class="page-link no-border" (click)="goPage('Next')">
+                    <span aria-hidden="true">»</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <ul class="list-unstyled">
+        <il class="media" *ngFor="let book of bookItems | async">
+            <app-book *ngIf="!isSearching" [bookItem]="book" (onClick)="openDialog($event)" ></app-book>
+        </il>
+    </ul>
+
+    <!-- <div class="results row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3">
+
+
+        <div class="col mb-2" *ngFor="let book of bookItems | async">
+            <app-book *ngIf="!isSearching" [bookItem]="book" (onClick)="openDialog($event)" ></app-book>
+        </div>
+
+
+ 
+    </div> -->
+
+  
+
+
+    <!-- <div class="card-deck">
+        <app-spinner *ngIf="isSearching">
+
+        </app-spinner>
+        <div class="card" *ngFor="let book of bookItems | async"> -->
+            <!-- <app-book *ngIf="!isSearching" [bookItem]="book" (onClick)="openDialog($event)" ></app-book> -->
+        <!-- </div>
+    </div> -->
+
+    <!-- <div class="row results-main">
+        <div class="col-12">
+            <div class="card card-margin">
+                <div class="card-body">
+                    <div class="row search-body">
+                        <div class="col-lg-12">
+                            <div class="search-result">
+                                <div class="result-header">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="records"> <span *ngIf="totalItems > 0"> Showing:
+                                                    <b>{{getFromIndex()}}-{{getToIndex()}}</b> of <b>{{totalItems}}</b>
+                                                </span> <span *ngIf="totalItems === 0"> No </span> result</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="result-body">
+                                    <div class="table-responsive">
+                                        <table class="table widget-26">
+                                            <tbody>
+                                                <app-spinner *ngIf="isSearching">
+
+                                                </app-spinner>
+                                                <div *ngFor="let book of bookItems | async">
+                                                    <app-book *ngIf="!isSearching" [bookItem]="book" (onClick)="openDialog($event)" ></app-book>
+                                                </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="d-flex justify-content-center">
+                        <ul *ngIf="getPagesCount() > 1"
+                            class="pagination pagination-base pagination-boxed pagination-square mb-0">
+                            <li *ngIf="pageNumber > 0" class="page-item">
+                                <a class="page-link no-border" (click)="goPage('Previous')">
+                                    <span aria-hidden="true">«</span>
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+
+                            <li *ngIf="pageNumber < getPagesCount()" class="page-item">
+                                <a class="page-link no-border" (click)="goPage('Next')">
+                                    <span aria-hidden="true">»</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

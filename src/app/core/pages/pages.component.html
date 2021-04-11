@@ -1,0 +1,9 @@
+<nav class="navbar navbar-fixed-top navbar-expand-lg navbar navbar-dark bg-primary">
+    <div class="nav-item"
+        [routerLink]="'/pages/search'">
+        Welcome {{dataCenter?.userName}}
+    </div>
+
+    <a class="nav-item" mat-button [routerLink]="'/pages/wishList'"> Wishlist </a>
+</nav>
+<router-outlet></router-outlet>

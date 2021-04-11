@@ -1,0 +1,35 @@
+<a mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon" color="warn">close</mat-icon>
+</a>
+
+<div *ngIf="data.bookDetails | async as data; else showSpinner">
+    <!-- {{data.id | json}} -->
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4 card-image">
+                <img src="{{data?.volumeInfo?.imageLinks?.thumbnail}}" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{data?.volumeInfo?.title}}</h3>
+                    <h5 class="card-title">{{data?.volumeInfo?.subtitle}}</h5>
+                    <p class="card-text">Print Type: {{data?.volumeInfo?.printType}}</p>
+                    <p class="card-text">Pages: {{data?.volumeInfo?.pageCount}}</p>
+                    <p class="card-text"><small class="text-muted">publisher: {{data.volumeInfo?.publisher}}</small></p>
+                    <p class="card-text"><small class="text-muted">publishedDate:
+                            {{data?.volumeInfo?.publishedDate}}</small></p>
+                    <a class="wish-list-button" (click)="toggelWishList(data)">
+                        <mat-icon class="wishlist-icon" [ngClass]="{selected: dataCenter.isSelcted(data?.id)}">star</mat-icon>
+                        <span *ngIf="dataCenter.isSelcted(data?.id)">In</span>
+                        <span *ngIf="!dataCenter.isSelcted(data?.id)">Add To</span>
+                        <span> Wish List</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #showSpinner>
+    <app-spinner></app-spinner>
+</ng-template>

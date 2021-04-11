@@ -1,0 +1,18 @@
+:host {
+    .card-image {
+        max-width: 25Vw;
+        max-height: 50Vh;
+    }
+    
+    .wishlist-icon {
+        color: gray;
+
+        &.selected {
+            color: yellow;
+        }
+    }
+    
+    .wish-list-button {
+        cursor: pointer;
+    }
+}
